@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Про Roblox</title>
+  <style>
+    body {
+      font-family: Impact, Charcoal, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to bottom, #333, #f9f9f9);
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-radius: 50%;
+      border: 5px solid #333;
+    }
+
+    .image-container {
+      position: absolute;
+      left: 10px;
+      width: 75px;
+      height: 75px;
+      overflow: hidden;
+      border-radius: 50%;
+      animation: rotateLogo 3s linear infinite;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes rotateLogo {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+      padding-left: 100px;
+      background: linear-gradient(to bottom, #333, #f9f9f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease-out;
+    }
+
+    nav {
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      background: linear-gradient(90deg, #0078d7, #00bfff);
+      padding: 10px 20px;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 20px;
+      border: 2px solid #0078d7;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: linear-gradient(90deg, #00bfff, #0078d7);
+      color: #f9f9f9;
+      box-shadow: 0px 4px 15px rgba(0, 120, 215, 0.5);
+      transform: scale(1.1);
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    h2, p {
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.8s ease-out;
+    }
+
+    h2.visible, p.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .roblox-info {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .roblox-info img {
+      width: 50%;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      animation: scaleUp 1s ease-out forwards;
+    }
+
+    @keyframes scaleUp {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="image-container">
+      <img src="roblox.jpg" alt="Логотип Roblox">
+    </div>
+    <h1>Про Roblox</h1>
+  </header>
+  <nav>
+    <a href="index.html">Головна</a>
+    <a href="about.html">Про Roblox</a>
+    <a href="games.html">Популярні ігри</a>
+  </nav>
+  <div class="content">
+    <h2>Що таке Roblox?</h2>
+    <p>Roblox — це унікальна платформа для створення, публікації та гри у відеоігри, створені користувачами. Вона дає можливість розвивати свої навички програмування, дизайну та співпраці!</p>
+    <div class="roblox-info">
+      <img src="roblox.jpg" alt="Логотип Roblox">
+      <img src="Screenshot_3_1611653713.jpg" alt="Ігри в Roblox">
+    </div>
+  </div>
+
+  <script>
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top <= window.innerHeight && rect.bottom >= 0;
+    }
+
+    const elements = document.querySelectorAll('h2, p');
+
+    window.addEventListener('scroll', () => {
+      elements.forEach((el) => {
+        if (isInViewport(el)) {
+          el.classList.add('visible');
+        }
+      });
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      elements.forEach((el) => {
+        if (isInViewport(el)) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
